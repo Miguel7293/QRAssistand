@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../services/data_service.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_logo.dart';
+import '../../widgets/app_notify.dart';
 
 /// Branded login + sign-up screen.
 class AuthScreen extends StatefulWidget {
@@ -53,7 +54,8 @@ class _AuthScreenState extends State<AuthScreen> {
             _isSignUp = false;
             _error = null;
           });
-          _snack('Cuenta creada. Ahora inicia sesion con tu correo.');
+          AppNotify.success(
+              context, 'Cuenta creada. Ahora inicia sesion con tu correo.');
         }
       } else {
         await DataService.signIn(
@@ -85,13 +87,6 @@ class _AuthScreenState extends State<AuthScreen> {
     }
     final m = RegExp(r'message: ([^,)]+)').firstMatch(s);
     return m != null ? m.group(1)!.trim() : 'Ocurrio un error. Intenta de nuevo.';
-  }
-
-  void _snack(String m) {
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(m), backgroundColor: AppColors.garnet),
-    );
   }
 
   @override

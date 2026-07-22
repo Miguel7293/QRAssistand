@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../models/app_models.dart';
 import '../../services/data_service.dart';
 import '../../theme/app_theme.dart';
+import '../../widgets/app_notify.dart';
 import '../profile/profile_screen.dart';
 import 'scan_screen.dart';
 
@@ -96,10 +97,11 @@ class _StudentHomeState extends State<StudentHome> {
 
   void _snack(String m, {bool ok = false}) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(m),
-      backgroundColor: ok ? AppColors.success : AppColors.danger,
-    ));
+    if (ok) {
+      AppNotify.success(context, m);
+    } else {
+      AppNotify.error(context, m);
+    }
   }
 
   @override

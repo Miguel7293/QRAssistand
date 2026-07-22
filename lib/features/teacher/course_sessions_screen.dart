@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../models/app_models.dart';
 import '../../services/data_service.dart';
 import '../../services/location_service.dart';
+import '../../widgets/app_notify.dart';
 import 'reports_screen.dart';
 import 'session_qr_screen.dart';
 
@@ -98,7 +99,7 @@ class _CourseSessionsScreenState extends State<CourseSessionsScreen> {
 
   void _snack(String m) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
+    AppNotify.error(context, m);
   }
 
   @override

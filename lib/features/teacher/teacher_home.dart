@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/app_models.dart';
 import '../../services/data_service.dart';
+import '../../widgets/app_notify.dart';
 import 'course_sessions_screen.dart';
 
 /// Teacher landing: list of the teacher's courses + create-course action.
@@ -39,8 +40,7 @@ class _TeacherHomeState extends State<TeacherHome> {
 
   void _snack(String m) {
     if (!mounted) return;
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(m)));
+    AppNotify.error(context, m);
   }
 
   @override
