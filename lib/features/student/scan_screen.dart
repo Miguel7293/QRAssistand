@@ -71,7 +71,7 @@ class _ScanScreenState extends State<ScanScreen>
 
   String _clean(String e) {
     if (e.contains('FormatException') || e.contains('not a subtype')) {
-      return 'Ese codigo no es un QR de asistencia valido.';
+      return 'Ese código no es un QR de asistencia válido.';
     }
     final match = RegExp(r'message: ([^,)]+)').firstMatch(e);
     if (match != null) return match.group(1)!.trim();
@@ -245,7 +245,7 @@ class _ScanScreenState extends State<ScanScreen>
                     color: Colors.white70, size: 28),
                 const SizedBox(height: 8),
                 Text(
-                  'Apunta la camara al codigo QR\nque muestra tu docente',
+                  'Apunta la cámara al código QR\nque muestra tu docente',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.9),
@@ -264,7 +264,7 @@ class _ScanScreenState extends State<ScanScreen>
                   children: [
                     CircularProgressIndicator(color: AppColors.gold),
                     SizedBox(height: 20),
-                    Text('Validando ubicacion y dispositivo...',
+                    Text('Validando ubicación y dispositivo...',
                         style: TextStyle(color: Colors.white, fontSize: 15)),
                   ],
                 ),

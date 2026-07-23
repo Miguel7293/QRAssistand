@@ -35,6 +35,21 @@ class _AuthScreenState extends State<AuthScreen> {
 
   Future<void> _submit() async {
     FocusScope.of(context).unfocus();
+
+    // Client-side validation so empty fields show a clear Spanish message
+    // instead of the backend's raw "Missing email or phone".
+    final email = _email.text.trim();
+    final pass = _password.text;
+    if (email.isEmpty || pass.isEmpty ||
+        (_isSignUp && _fullName.text.trim().isEmpty)) {
+      setState(() => _error = 'Completa todos los campos.');
+      return;
+    }
+    if (!email.contains('@') || !email.contains('.')) {
+      setState(() => _error = 'Ingresa un correo válido.');
+      return;
+    }
+
     setState(() {
       _loading = true;
       _error = null;
@@ -55,7 +70,7 @@ class _AuthScreenState extends State<AuthScreen> {
             _error = null;
           });
           AppNotify.success(
-              context, 'Cuenta creada. Ahora inicia sesion con tu correo.');
+              context, 'Cuenta creada. Ahora inicia sesión con tu correo.');
         }
       } else {
         await DataService.signIn(
@@ -76,17 +91,17 @@ class _AuthScreenState extends State<AuthScreen> {
       return 'Demasiados intentos. Espera unos segundos y vuelve a probar.';
     }
     if (s.contains('Invalid login credentials')) {
-      return 'Correo o contrasena incorrectos.';
+      return 'Correo o contraseña incorrectos.';
     }
     if (s.contains('already registered') ||
         s.contains('User already registered')) {
-      return 'Ese correo ya tiene una cuenta. Inicia sesion.';
+      return 'Ese correo ya tiene una cuenta. Inicia sesión.';
     }
     if (s.contains('Password should be')) {
-      return 'La contrasena debe tener al menos 6 caracteres.';
+      return 'La contraseña debe tener al menos 6 caracteres.';
     }
     final m = RegExp(r'message: ([^,)]+)').firstMatch(s);
-    return m != null ? m.group(1)!.trim() : 'Ocurrio un error. Intenta de nuevo.';
+    return m != null ? m.group(1)!.trim() : 'Ocurrió un error. Intenta de nuevo.';
   }
 
   @override
@@ -120,7 +135,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                 ),
                 Text(
-                  'Control de asistencia con QR dinamico',
+                  'Control de asistencia con QR dinámico',
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.85),
                     fontSize: 13,
@@ -148,7 +163,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     const SizedBox(height: 4),
                     Text(
                       _isSignUp
-                          ? 'Registrate para empezar a usar el sistema.'
+                          ? 'Regístrate para empezar a usar el sistema.'
                           : 'Ingresa con tu correo institucional.',
                       style: const TextStyle(color: AppColors.muted),
                     ),
@@ -176,7 +191,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    _label('Contrasena'),
+                    _label('Contraseña'),
                     TextField(
                       controller: _password,
                       obscureText: _obscure,
@@ -242,8 +257,8 @@ class _AuthScreenState extends State<AuthScreen> {
                       children: [
                         Text(
                           _isSignUp
-                              ? 'Ya tienes cuenta?'
-                              : 'No tienes cuenta?',
+                              ? '¿Ya tienes una cuenta?'
+                              : '¿No tienes una cuenta?',
                           style: const TextStyle(color: AppColors.muted),
                         ),
                         TextButton(
@@ -254,7 +269,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                     _error = null;
                                   }),
                           child: Text(
-                            _isSignUp ? 'Inicia sesion' : 'Registrate',
+                            _isSignUp ? 'Inicia sesión' : 'Regístrate',
                             style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: AppColors.garnet),

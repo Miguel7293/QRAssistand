@@ -73,7 +73,7 @@ class _TeacherHomeState extends State<TeacherHome> {
           final courses = snap.data!;
           if (courses.isEmpty) {
             return const Center(
-              child: Text('Aun no tenes cursos.\nCrea uno con el boton +',
+              child: Text('Aún no tenes cursos.\nCrea uno con el botón +',
                   textAlign: TextAlign.center),
             );
           }
@@ -87,7 +87,7 @@ class _TeacherHomeState extends State<TeacherHome> {
                 return ListTile(
                   leading: const CircleAvatar(child: Icon(Icons.book)),
                   title: Text(c.name),
-                  subtitle: Text('Codigo: ${c.code}'),
+                  subtitle: Text('Código: ${c.code}'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(

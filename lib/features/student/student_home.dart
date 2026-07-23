@@ -65,7 +65,7 @@ class _StudentHomeState extends State<StudentHome> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Pide a tu docente el codigo del curso.'),
+            const Text('Pide a tu docente el código del curso.'),
             const SizedBox(height: 12),
             TextField(
               controller: c,
@@ -290,10 +290,10 @@ class _StudentHomeState extends State<StudentHome> {
           children: [
             Icon(Icons.school_outlined, size: 48, color: AppColors.muted),
             SizedBox(height: 12),
-            Text('Aun no estas en ningun curso',
+            Text('Aún no estás en ningún curso',
                 style: TextStyle(fontWeight: FontWeight.w600)),
             SizedBox(height: 4),
-            Text('Toca "Unirme a curso" e ingresa el codigo del docente.',
+            Text('Toca "Unirme a curso" e ingresa el código del docente.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: AppColors.muted)),
           ],
@@ -476,7 +476,7 @@ class _CourseCard extends StatelessWidget {
                     Text(summary.courseName,
                         style: const TextStyle(
                             fontWeight: FontWeight.w700, fontSize: 16)),
-                    Text('Codigo: ${summary.courseCode}',
+                    Text('Código: ${summary.courseCode}',
                         style: const TextStyle(
                             color: AppColors.muted, fontSize: 12)),
                   ],

@@ -7,7 +7,7 @@ class LocationService {
   static Future<Position> currentPosition() async {
     final serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      throw 'El GPS esta apagado. Activalo para registrar asistencia.';
+      throw 'El GPS está apagado. Actívalo para registrar asistencia.';
     }
 
     var permission = await Geolocator.checkPermission();
@@ -15,10 +15,10 @@ class LocationService {
       permission = await Geolocator.requestPermission();
     }
     if (permission == LocationPermission.denied) {
-      throw 'Permiso de ubicacion denegado.';
+      throw 'Permiso de ubicación denegado.';
     }
     if (permission == LocationPermission.deniedForever) {
-      throw 'Permiso de ubicacion bloqueado. Habilitalo en Ajustes.';
+      throw 'Permiso de ubicación bloqueado. Habilítalo en Ajustes.';
     }
 
     return Geolocator.getCurrentPosition(

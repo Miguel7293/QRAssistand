@@ -66,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
             },
             style: FilledButton.styleFrom(backgroundColor: AppColors.danger),
             icon: const Icon(Icons.logout),
-            label: const Text('Cerrar sesion'),
+            label: const Text('Cerrar sesión'),
           ),
         ],
       ),

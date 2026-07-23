@@ -58,12 +58,12 @@ class AppNotify {
         NotifyType.warning => (
             AppColors.gold,
             Icons.warning_amber_rounded,
-            'Atencion'
+            'Atención'
           ),
         NotifyType.info => (
             AppColors.garnet,
             Icons.info_rounded,
-            'Informacion'
+            'Información'
           ),
       };
 }

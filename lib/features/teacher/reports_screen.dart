@@ -47,7 +47,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
               if (records.isEmpty)
                 const Expanded(
                   child:
-                      Center(child: Text('Aun no hay registros de asistencia.')),
+                      Center(child: Text('Aún no hay registros de asistencia.')),
                 )
               else
                 Expanded(

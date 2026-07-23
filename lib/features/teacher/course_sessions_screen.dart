@@ -79,11 +79,11 @@ class _CourseSessionsScreenState extends State<CourseSessionsScreen> {
     return showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Nueva sesion de clase'),
+        title: const Text('Nueva sesión de clase'),
         content: TextField(
           controller: controller,
           autofocus: true,
-          decoration: const InputDecoration(hintText: 'Titulo / tema'),
+          decoration: const InputDecoration(hintText: 'Título / tema'),
         ),
         actions: [
           TextButton(
@@ -130,8 +130,8 @@ class _CourseSessionsScreenState extends State<CourseSessionsScreen> {
           if (sessions.isEmpty) {
             return const Center(
               child: Text(
-                  'Sin clases aun.\nCrea una con "Nueva clase".\n'
-                  'Se usara la ubicacion de tu telefono como el aula.',
+                  'Sin clases aún.\nCrea una con "Nueva clase".\n'
+                  'Se usará la ubicación de tu teléfono como el aula.',
                   textAlign: TextAlign.center),
             );
           }

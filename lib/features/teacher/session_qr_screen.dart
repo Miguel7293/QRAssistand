@@ -89,7 +89,7 @@ class _SessionQrScreenState extends State<SessionQrScreen> {
                 const Icon(Icons.check_circle,
                     color: Colors.green, size: 80),
                 const SizedBox(height: 16),
-                const Text('Sesion cerrada.',
+                const Text('Sesión cerrada.',
                     style: TextStyle(fontSize: 18)),
               ] else if (_error != null) ...[
                 const Icon(Icons.error, color: Colors.red, size: 64),
@@ -116,7 +116,7 @@ class _SessionQrScreenState extends State<SessionQrScreen> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                Text('El codigo cambia en $_secondsLeft s',
+                Text('El código cambia en $_secondsLeft s',
                     style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 8),
                 LinearProgressIndicator(
@@ -126,14 +126,14 @@ class _SessionQrScreenState extends State<SessionQrScreen> {
                 const Text(
                   'Muestra esta pantalla a la clase.\n'
                   'Cada estudiante escanea y su asistencia se valida por '
-                  'ubicacion y dispositivo.',
+                  'ubicación y dispositivo.',
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24),
                 OutlinedButton.icon(
                   onPressed: _closeSession,
                   icon: const Icon(Icons.stop),
-                  label: const Text('Cerrar sesion de asistencia'),
+                  label: const Text('Cerrar sesión de asistencia'),
                 ),
               ],
             ],

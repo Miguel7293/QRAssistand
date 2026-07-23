@@ -91,7 +91,7 @@ class _RoleRouterState extends State<_RoleRouter> {
                     const SizedBox(height: 16),
                     FilledButton(
                       onPressed: DataService.signOut,
-                      child: const Text('Cerrar sesion'),
+                      child: const Text('Cerrar sesión'),
                     ),
                   ],
                 ),
